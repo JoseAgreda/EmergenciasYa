@@ -7,4 +7,8 @@
     <item name="etPassword" type="id" />
     <item name="btnLogin" type="id" />
     <item name="tvRegister" type="id" />
+    <item name="statusBar" type="id" />
+    <item name="headerBar" type="id" />
+    <item name="sosSection" type="id" />
+    <item name="btnBlack" type="id" />
 </resources>

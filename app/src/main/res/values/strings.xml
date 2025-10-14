@@ -16,4 +16,5 @@
     <string name="contrasena">Contraseña</string>
     <string name="iniciar_sesion">Iniciar sesión</string>
     <string name="registrate">¿No tienes cuenta? Regístrate</string>
+    <string name="sos_section">SOS Section</string>
 </resources>
