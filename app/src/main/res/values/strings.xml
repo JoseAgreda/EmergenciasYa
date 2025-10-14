@@ -1,4 +1,19 @@
 <resources>
-    <string name="app_name">EmergenciasYa</string>
+    <string name="app_name">EmergenciasYa!</string>
     <string name="intro">EmergenciasYa!</string>
+    <string name="registro_de_incidentes">Registro de Incidentes</string>
+    <string name="primeros_auxilios">Primeros Auxilios</string>
+    <string name="alarma">Alarma</string>
+    <string name="localizaci_n">Localización</string>
+    <string name="contactos_de_confianza">Contactos de Confianza</string>
+    <string name="numeros_oficiales">Números Oficiales</string>
+    <string name="configuracion">Configuración</string>
+    <string name="ayuda">Ayuda</string>
+    <string name="acerca_de">Acerca de</string>
+    <string name="salir">Salir</string>
+    <string name="inicio_de_sesion">Inicio de Sesión</string>
+    <string name="correo_electronico">Correo electrónico</string>
+    <string name="contrasena">Contraseña</string>
+    <string name="iniciar_sesion">Iniciar sesión</string>
+    <string name="registrate">¿No tienes cuenta? Regístrate</string>
 </resources>

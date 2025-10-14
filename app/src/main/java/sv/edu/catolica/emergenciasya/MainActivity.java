@@ -1,4 +1,4 @@
 package sv.edu.catolica.emergenciasya;
 
-public class Principal {
+public class MainActivity {
 }

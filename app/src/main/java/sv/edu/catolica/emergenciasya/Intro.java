@@ -4,7 +4,6 @@ package sv.edu.catolica.emergenciasya;
 import android.os.Bundle;
 
 import android.content.Intent;
-import android.os.Bundle;
 import android.os.Handler;
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -20,7 +19,7 @@ public class Intro extends AppCompatActivity {
         //noinspection deprecation
         new Handler().postDelayed(() -> {
             // Navigate to main screen
-            Intent intent = new Intent(Intro.this, Principal.class);
+            Intent intent = new Intent(Intro.this, LogIn.class);
             startActivity(intent);
             finish(); // close splash so user can’t go back
         }, SPLASH_DELAY);
