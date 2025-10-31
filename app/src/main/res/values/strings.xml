@@ -17,4 +17,7 @@
     <string name="iniciar_sesion">Iniciar sesión</string>
     <string name="registrate">¿No tienes cuenta? Regístrate</string>
     <string name="sos_section">SOS Section</string>
+    <string name="ubicacion_sms">Enviar ubicación via SMS</string>
+    <string name="ubi_realtime">Compartir ubicación en tiempo real</string>
+    <string name="localizacion">Localización</string>
 </resources>

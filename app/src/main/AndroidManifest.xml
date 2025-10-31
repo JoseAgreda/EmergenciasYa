@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    >
+<manifest xmlns:android="http://schemas.android.com/apk/res/android">
 
     <application
         android:allowBackup="true"
@@ -12,6 +11,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.EmergenciasYa">
         <activity
+            android:name=".activity_localizacion"
+            android:exported="false" />
+        <activity
             android:name=".Intro"
             android:exported="true">
             <intent-filter>
@@ -20,11 +22,8 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
         <activity android:name=".LogIn" />
         <activity android:name=".MainActivity" />
-
-
     </application>
 
 </manifest>
