@@ -20,4 +20,8 @@
     <string name="ubicacion_sms">Enviar ubicación via SMS</string>
     <string name="ubi_realtime">Compartir ubicación en tiempo real</string>
     <string name="localizacion">Localización</string>
+    <string name="alarma_de_bolsillo">Alarma de Bolsillo</string>
+    <string name="alarmabtn">¡ALARMA!</string>
+    <string name="activar_flash">Activar Flash</string>
+    <string name="indicacion">Presiona el botón para activar una alarma sonora. Usa el botón secundario para activar el flash como señal visual.</string>
 </resources>

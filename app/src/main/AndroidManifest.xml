@@ -11,6 +11,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.EmergenciasYa">
         <activity
+            android:name=".activity_alarma_personal"
+            android:exported="false" />
+        <activity
             android:name=".activity_localizacion"
             android:exported="false" />
         <activity
