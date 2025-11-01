@@ -42,7 +42,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_begin="293dp" />
+        app:layout_constraintGuide_begin="288dp" />
 
     <!-- Contenedor para las opciones -->
     <LinearLayout
@@ -121,7 +121,7 @@
                     android:layout_width="40dp"
                     android:layout_height="40dp"
                     android:src="@drawable/ic_hospital"
-                    app:tint="#4CAF50"
+                    app:tint="#E91E63"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
                     app:layout_constraintBottom_toBottomOf="parent"/>

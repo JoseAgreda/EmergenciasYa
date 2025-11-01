@@ -24,4 +24,14 @@
     <string name="alarmabtn">¡ALARMA!</string>
     <string name="activar_flash">Activar Flash</string>
     <string name="indicacion">Presiona el botón para activar una alarma sonora. Usa el botón secundario para activar el flash como señal visual.</string>
+    <string name="n_meros_de_emergencia">Números de Emergencia</string>
+    <string name="pnc">PNC</string>
+    <string name="bomberos">Bomberos</string>
+    <string name="cruz_roja">Cruz Roja</string>
+    <string name="cruz_verde">Cruz Verde</string>
+    <string name="logo_de_comandos_de_salvamento">Logo de Comandos de Salvamento</string>
+    <string name="comandos_de_salvamento">Comandos de Salvamento</string>
+    <string name="protecci_n_civil">Protección Civil</string>
+    <string name="aes">AES</string>
+    <string name="sistema_de_emergencias_medicas">Sistema de Emergencias Medicas</string>
 </resources>
