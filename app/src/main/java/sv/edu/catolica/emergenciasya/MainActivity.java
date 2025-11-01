@@ -13,9 +13,9 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        btnOption1 = findViewById(R.id.btnOption1);
-        btnOption2 = findViewById(R.id.btnOption2);
-        btnOption3 = findViewById(R.id.btnOption3);
+        btnOption1 = findViewById(R.id.card_numeros_oficiales);
+        btnOption2 = findViewById(R.id.card_primeros_auxilios);
+        btnOption3 = findViewById(R.id.card_contactos);
 
         btnOption1.setOnClickListener(v -> {
             // TODO: Action for emergency call
