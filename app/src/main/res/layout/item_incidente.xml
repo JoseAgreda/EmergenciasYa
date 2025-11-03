@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.card.MaterialCardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginHorizontal="16dp"
+    android:layout_marginTop="8dp"
+    android:layout_marginBottom="8dp"
+    app:cardCornerRadius="12dp"
+    app:cardElevation="4dp"
+    app:cardBackgroundColor="@android:color/white">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="16dp">
+
+        <!-- Icono representativo del incidente -->
+        <ImageView
+            android:id="@+id/icon_incidente"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:src="@drawable/ic_incident"
+            app:tint="#D32F2F"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:contentDescription="Icono de incidente"/>
+
+        <!-- Título del Incidente -->
+        <TextView
+            android:id="@+id/tv_tipo_emergencia"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:textColor="#212121"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/icon_incidente"
+            app:layout_constraintTop_toTopOf="@id/icon_incidente"
+            tools:text="RCP Realizado" />
+
+        <!-- Línea separadora -->
+        <View
+            android:id="@+id/divider"
+            android:layout_width="0dp"
+            android:layout_height="1dp"
+            android:layout_marginTop="12dp"
+            android:background="#E0E0E0"
+            app:layout_constraintTop_toBottomOf="@id/icon_incidente"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" />
+
+        <!-- Fila para la Fecha -->
+        <ImageView
+            android:id="@+id/icon_fecha"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_marginTop="12dp"
+            android:src="@drawable/ic_calendar"
+            app:tint="#757575"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/divider"
+            android:contentDescription="Icono de fecha"/>
+
+        <TextView
+            android:id="@+id/tv_fecha"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:textColor="#757575"
+            android:textSize="14sp"
+            app:layout_constraintBottom_toBottomOf="@id/icon_fecha"
+            app:layout_constraintStart_toEndOf="@id/icon_fecha"
+            app:layout_constraintTop_toTopOf="@id/icon_fecha"
+            tools:text="24 de junio, 2025" />
+
+        <!-- Fila para el Contacto -->
+        <ImageView
+            android:id="@+id/icon_contacto"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_marginTop="8dp"
+            android:src="@drawable/ic_call"
+            app:tint="#757575"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/icon_fecha"
+            android:contentDescription="Icono de contacto"/>
+
+        <TextView
+            android:id="@+id/tv_contacto"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:textColor="#757575"
+            android:textSize="14sp"
+            app:layout_constraintBottom_toBottomOf="@id/icon_contacto"
+            app:layout_constraintStart_toEndOf="@id/icon_contacto"
+            app:layout_constraintTop_toTopOf="@id/icon_contacto"
+            tools:text="Llamada a 2222-5155" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</com.google.android.material.card.MaterialCardView>
