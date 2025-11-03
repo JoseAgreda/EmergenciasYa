@@ -11,6 +11,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.EmergenciasYa">
         <activity
+            android:name=".GuiaPrimerosAuxiliosActivity"
+            android:exported="false" />
+        <activity
             android:name=".activity_contactos_confianza"
             android:exported="false" />
         <activity
