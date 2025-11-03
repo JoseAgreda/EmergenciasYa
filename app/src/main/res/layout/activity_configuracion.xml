@@ -44,7 +44,7 @@
 
             <!-- Opción Idioma -->
             <LinearLayout style="@style/SettingsItem">
-                <ImageView style="@style/SettingsItemIcon" android:src="@drawable/ic_language" android:contentDescription="Icono de idioma" />
+                <ImageView style="@style/SettingsItemIcon" android:src="@drawable/ic_languaje" android:contentDescription="Icono de idioma" />
                 <LinearLayout style="@style/SettingsItemTextContainer">
                     <TextView style="@style/SettingsItemTitle" android:text="Idioma" />
                     <TextView style="@style/SettingsItemSubtitle" android:text="Español" />
@@ -53,14 +53,17 @@
 
             <!-- Opción Tema Oscuro -->
             <LinearLayout style="@style/SettingsItem">
-                <ImageView style="@style/SettingsItemIcon" android:src="@drawable/ic_dark_mode" android:contentDescription="Icono de tema oscuro" />
+                <ImageView style="@style/SettingsItemIcon"
+                    android:src="@drawable/ic_dark_mode" android:contentDescription="Icono de tema oscuro" />
                 <LinearLayout style="@style/SettingsItemTextContainer">
                     <TextView style="@style/SettingsItemTitle" android:text="Tema oscuro" />
                 </LinearLayout>
+
                 <com.google.android.material.switchmaterial.SwitchMaterial
                     android:id="@+id/switch_dark_mode"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content" />
+                    android:layout_height="wrap_content"
+                    tools:ignore="SpeakableTextPresentCheck" />
             </LinearLayout>
 
             <View style="@style/SettingsDivider" />
@@ -72,7 +75,8 @@
 
             <!-- Opción Tamaño de letra -->
             <LinearLayout style="@style/SettingsItem">
-                <ImageView style="@style/SettingsItemIcon" android:src="@drawable/ic_text_size" android:contentDescription="Icono de tamaño de texto"/>
+                <ImageView style="@style/SettingsItemIcon" android:src="@drawable/ic_text_size"
+                    android:contentDescription="Icono de tamaño de texto"/>
                 <LinearLayout style="@style/SettingsItemTextContainer">
                     <TextView style="@style/SettingsItemTitle" android:text="Tamaño de letra" />
                     <TextView style="@style/SettingsItemSubtitle" android:text="Normal" />
@@ -85,10 +89,12 @@
                 <LinearLayout style="@style/SettingsItemTextContainer">
                     <TextView style="@style/SettingsItemTitle" android:text="Contraste alto" />
                 </LinearLayout>
+
                 <com.google.android.material.switchmaterial.SwitchMaterial
                     android:id="@+id/switch_high_contrast"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content" />
+                    android:layout_height="wrap_content"
+                    tools:ignore="SpeakableTextPresentCheck" />
             </LinearLayout>
 
             <View style="@style/SettingsDivider" />

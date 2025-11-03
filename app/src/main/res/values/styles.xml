@@ -29,7 +29,7 @@
         <item name="android:layout_width">24dp</item>
         <item name="android:layout_height">24dp</item>
         <item name="android:layout_marginEnd">16dp</item>
-        <item name="app:tint">#555555</item>
+        <item name="android:tint">#D32F2F</item>
     </style>
 
     <style name="SettingsItemTextContainer">
@@ -57,7 +57,7 @@
         <item name="android:layout_width">24dp</item>
         <item name="android:layout_height">24dp</item>
         <item name="android:src">@drawable/ic_arrow_forward</item>
-        <item name="app:tint">#BDBDBD</item>
+        <item name="android:tint">#BDBDBD</item>
     </style>
 
     <style name="SettingsDivider">
