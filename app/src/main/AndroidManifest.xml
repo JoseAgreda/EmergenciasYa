@@ -1,6 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android">
 
+    <uses-feature
+        android:name="android.hardware.telephony"
+        android:required="false" />
+    <uses-feature
+        android:name="android.hardware.camera"
+        android:required="false" />
+
+    <uses-permission android:name="android.permission.CALL_PHONE" />
+    <!-- Permiso para usar el flash (a través de la cámara) -->
+    <uses-permission android:name="android.permission.CAMERA" />
+    <!-- Permisos de ubicación -->
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+
     <application
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
@@ -10,36 +24,49 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.EmergenciasYa">
+
         <activity
             android:name=".ConfiguracionActivity"
             android:exported="false" />
+
         <activity
             android:name=".RegistroIncidentesActivity"
             android:exported="false" />
+
         <activity
             android:name=".GuiaPrimerosAuxiliosActivity"
             android:exported="false" />
+
         <activity
-            android:name=".activity_contactos_confianza"
+            android:name=".ContactosConfianzaActivity"
             android:exported="false" />
+
         <activity
-            android:name=".activity_numeros_oficiales"
+            android:name=".NumerosOficialesActivity"
             android:exported="false" />
+
+        <activity
+            android:name=".PrimerosAuxiliosActivity"
+            android:exported="false" />
+
         <activity
             android:name=".activity_alarma_personal"
             android:exported="false" />
+
         <activity
             android:name=".activity_localizacion"
             android:exported="false" />
+        <activity android:name=".RegisterActivity" />
+
         <activity
             android:name=".Intro"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
         <activity android:name=".LogIn" />
         <activity android:name=".MainActivity" />
     </application>

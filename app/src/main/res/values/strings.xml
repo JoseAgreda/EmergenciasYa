@@ -34,4 +34,13 @@
     <string name="protecci_n_civil">Protección Civil</string>
     <string name="aes">AES</string>
     <string name="sistema_de_emergencias_medicas">Sistema de Emergencias Medicas</string>
+    
+    <!-- Strings for Register Screen -->
+    <string name="register_title">Crear cuenta</string>
+    <string name="register_name_hint">Nombre</string>
+    <string name="register_email_hint">Correo</string>
+    <string name="register_password_hint">Contraseña</string>
+    <string name="register_confirm_password_hint">Confirmar contraseña</string>
+    <string name="register_button_text">Registrar</string>
+    <string name="register_go_to_login">Ya tengo una cuenta</string>
 </resources>

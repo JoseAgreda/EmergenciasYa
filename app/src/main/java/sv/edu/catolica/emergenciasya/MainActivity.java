@@ -1,32 +1,65 @@
 package sv.edu.catolica.emergenciasya;
 
+import android.content.Intent;
 import android.os.Bundle;
-import android.widget.Button;
 import androidx.appcompat.app.AppCompatActivity;
+import com.google.android.material.card.MaterialCardView;
 
 public class MainActivity extends AppCompatActivity {
 
-    private Button btnOption1, btnOption2, btnOption3;
+    private MaterialCardView sosCard, cardNumerosOficiales, cardPrimerosAuxilios, cardContactos;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        btnOption1 = findViewById(R.id.card_numeros_oficiales);
-        btnOption2 = findViewById(R.id.card_primeros_auxilios);
-        btnOption3 = findViewById(R.id.card_contactos);
+        // === Referencias de las cards existentes ===
+        sosCard = findViewById(R.id.sos_card);
+        cardNumerosOficiales = findViewById(R.id.card_numeros_oficiales);
+        cardPrimerosAuxilios = findViewById(R.id.card_primeros_auxilios);
+        cardContactos = findViewById(R.id.card_contactos);
 
-        btnOption1.setOnClickListener(v -> {
-            // TODO: Action for emergency call
+        // === Acciones para cada card ===
+
+        sosCard.setOnClickListener(v -> {
+            Intent intent = new Intent(MainActivity.this, AlarmaActivity.class);
+            startActivity(intent);
         });
 
-        btnOption2.setOnClickListener(v -> {
-            // TODO: Open First Aid screen
+        cardNumerosOficiales.setOnClickListener(v -> {
+            Intent intent = new Intent(MainActivity.this, NumerosOficialesActivity.class);
+            startActivity(intent);
         });
 
-        btnOption3.setOnClickListener(v -> {
-            // TODO: Open Trusted Contacts
+        cardPrimerosAuxilios.setOnClickListener(v -> {
+            Intent intent = new Intent(MainActivity.this, PrimerosAuxiliosActivity.class);
+            startActivity(intent);
+        });
+
+        cardContactos.setOnClickListener(v -> {
+            Intent intent = new Intent(MainActivity.this, ContactosConfianzaActivity.class);
+            startActivity(intent);
+        });
+
+        // === Nuevas secciones (no cambian el diseño actual) ===
+
+        findViewById(R.id.sos_card).setOnLongClickListener(v -> {
+            Intent intent = new Intent(MainActivity.this, RegistroIncidentesActivity.class);
+            startActivity(intent);
+            return true;
+        });
+
+        findViewById(R.id.card_primeros_auxilios).setOnLongClickListener(v -> {
+            Intent intent = new Intent(MainActivity.this, LocalizacionActivity.class);
+            startActivity(intent);
+            return true;
+        });
+
+        findViewById(R.id.card_contactos).setOnLongClickListener(v -> {
+            Intent intent = new Intent(MainActivity.this, PerfilActivity.class);
+            startActivity(intent);
+            return true;
         });
     }
 }
