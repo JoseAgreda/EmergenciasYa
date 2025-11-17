@@ -53,7 +53,7 @@ public class MainActivity extends AppCompatActivity {
         });
 
         cardPrimerosAuxilios.setOnClickListener(v -> {
-            Intent intent = new Intent(MainActivity.this, PrimerosAuxiliosActivity.class);
+            Intent intent = new Intent(MainActivity.this, activity_guia_primeros_auxilios2.class);
             startActivity(intent);
         });
 
