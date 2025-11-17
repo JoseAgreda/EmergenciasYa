@@ -5,14 +5,12 @@ import android.content.Context;
 import android.content.pm.PackageManager;
 import android.hardware.camera2.CameraAccessException;
 import android.hardware.camera2.CameraManager;
-import android.media.Ringtone;
-import android.media.RingtoneManager;
-import android.net.Uri;
+import android.media.AudioManager;
+import android.media.MediaPlayer;
 import android.os.Build;
 import android.os.Bundle;
 import android.widget.TextView;
 import android.widget.Toast;
-import android.view.View;
 
 import androidx.activity.EdgeToEdge;
 import androidx.annotation.NonNull;
@@ -32,10 +30,16 @@ public class activity_alarma_personal extends AppCompatActivity {
     private boolean isAlarmPlaying = false;
     private boolean isFlashOn = false;
 
-    private Ringtone ringtone;
+    // NUEVOS COMPONENTES PARA SONIDO
+    private MediaPlayer mediaPlayer;
+    private AudioManager audioManager;
+    private int originalVolume; // Para guardar el volumen original del usuario
+
+    // Componentes de la cámara
     private CameraManager cameraManager;
     private String cameraId;
 
+    // Vistas de la UI
     private TextView textAlarma;
     private MaterialButton btnFlash;
 
@@ -56,15 +60,11 @@ public class activity_alarma_personal extends AppCompatActivity {
         textAlarma = findViewById(R.id.text_alarma);
         btnFlash = findViewById(R.id.btnFlash);
 
+        // Inicializar AudioManager
+        audioManager = (AudioManager) getSystemService(Context.AUDIO_SERVICE);
+
         // Inicializar cámara para el flash
-        cameraManager = (CameraManager) getSystemService(Context.CAMERA_SERVICE);
-        try {
-            if (cameraManager != null && cameraManager.getCameraIdList().length > 0) {
-                cameraId = cameraManager.getCameraIdList()[0]; // normalmente la cámara trasera
-            }
-        } catch (CameraAccessException e) {
-            e.printStackTrace();
-        }
+        setupCamera();
 
         // Listener del botón grande de alarma (card roja)
         cardAlarma.setOnClickListener(v -> toggleAlarm());
@@ -74,7 +74,7 @@ public class activity_alarma_personal extends AppCompatActivity {
     }
 
     // =========================
-    // LÓGICA DE LA ALARMA SONORA
+    // LÓGICA DE LA ALARMA SONORA (MODIFICADA)
     // =========================
     private void toggleAlarm() {
         if (isAlarmPlaying) {
@@ -85,49 +85,70 @@ public class activity_alarma_personal extends AppCompatActivity {
     }
 
     private void startAlarm() {
-        // Usar tono de alarma del sistema, si no existe usar notificación
-        Uri alarmUri = RingtoneManager.getDefaultUri(RingtoneManager.TYPE_ALARM);
-        if (alarmUri == null) {
-            alarmUri = RingtoneManager.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION);
-        }
+        if (audioManager == null) return;
 
-        ringtone = RingtoneManager.getRingtone(getApplicationContext(), alarmUri);
-        if (ringtone != null) {
-            ringtone.play();
+        // 1. Guardar el volumen actual del usuario para poder restaurarlo después.
+        originalVolume = audioManager.getStreamVolume(AudioManager.STREAM_MUSIC);
+
+        // 2. Establecer el volumen del canal de música al máximo.
+        int maxVolume = audioManager.getStreamMaxVolume(AudioManager.STREAM_MUSIC);
+        audioManager.setStreamVolume(AudioManager.STREAM_MUSIC, maxVolume, 0);
+
+        // 3. Preparar y reproducir el sonido de sirena con MediaPlayer.
+        // Asegúrate de tener el archivo "siren_sound.mp3" en la carpeta res/raw.
+        mediaPlayer = MediaPlayer.create(this, R.raw.siren_sound);
+
+        if (mediaPlayer != null) {
+            mediaPlayer.setLooping(true); // Para que el sonido se repita sin parar.
+            mediaPlayer.start();
             isAlarmPlaying = true;
             textAlarma.setText("DETENER");
         } else {
             Toast.makeText(this, "No se pudo reproducir la alarma", Toast.LENGTH_SHORT).show();
+            // Si falla, restauramos el volumen original.
+            audioManager.setStreamVolume(AudioManager.STREAM_MUSIC, originalVolume, 0);
         }
     }
 
     private void stopAlarm() {
-        if (ringtone != null && ringtone.isPlaying()) {
-            ringtone.stop();
+        if (mediaPlayer != null && mediaPlayer.isPlaying()) {
+            mediaPlayer.stop();
+            mediaPlayer.release(); // Liberar recursos del MediaPlayer.
+            mediaPlayer = null;
         }
+
+        // Restaurar el volumen original del usuario.
+        if (audioManager != null) {
+            audioManager.setStreamVolume(AudioManager.STREAM_MUSIC, originalVolume, 0);
+        }
+
         isAlarmPlaying = false;
-        // Regresar al texto original del botón
         textAlarma.setText(getString(R.string.alarmabtn));
     }
 
-    // =========================
-    // LÓGICA DEL FLASH
-    // =========================
+
+    // ===============================================
+    // LÓGICA DEL FLASH (sin cambios importantes)
+    // ===============================================
+    private void setupCamera() {
+        cameraManager = (CameraManager) getSystemService(Context.CAMERA_SERVICE);
+        try {
+            if (cameraManager != null && cameraManager.getCameraIdList().length > 0) {
+                cameraId = cameraManager.getCameraIdList()[0];
+            }
+        } catch (CameraAccessException e) {
+            e.printStackTrace();
+        }
+    }
+
     private void toggleFlash() {
         if (Build.VERSION.SDK_INT < Build.VERSION_CODES.M) {
             Toast.makeText(this, "El flash requiere Android 6.0 o superior", Toast.LENGTH_SHORT).show();
             return;
         }
 
-        // Verificar permiso de cámara
-        if (ActivityCompat.checkSelfPermission(this, Manifest.permission.CAMERA)
-                != PackageManager.PERMISSION_GRANTED) {
-
-            ActivityCompat.requestPermissions(
-                    this,
-                    new String[]{Manifest.permission.CAMERA},
-                    REQUEST_CAMERA_PERMISSION
-            );
+        if (ActivityCompat.checkSelfPermission(this, Manifest.permission.CAMERA) != PackageManager.PERMISSION_GRANTED) {
+            ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.CAMERA}, REQUEST_CAMERA_PERMISSION);
             return;
         }
 
@@ -139,30 +160,18 @@ public class activity_alarma_personal extends AppCompatActivity {
         try {
             isFlashOn = !isFlashOn;
             cameraManager.setTorchMode(cameraId, isFlashOn);
-
-            if (isFlashOn) {
-                btnFlash.setText("Apagar Flash");
-            } else {
-                btnFlash.setText(getString(R.string.activar_flash));
-            }
-
+            btnFlash.setText(isFlashOn ? "Apagar Flash" : getString(R.string.activar_flash));
         } catch (CameraAccessException e) {
             e.printStackTrace();
             Toast.makeText(this, "Error al controlar el flash", Toast.LENGTH_SHORT).show();
         }
     }
 
-    // Manejar el resultado de la solicitud de permiso de cámara
     @Override
-    public void onRequestPermissionsResult(int requestCode,
-                                           @NonNull String[] permissions,
-                                           @NonNull int[] grantResults) {
+    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
         super.onRequestPermissionsResult(requestCode, permissions, grantResults);
-
         if (requestCode == REQUEST_CAMERA_PERMISSION) {
-            if (grantResults.length > 0
-                    && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
-                // Si el usuario dio permiso, intentar encender el flash de nuevo
+            if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
                 toggleFlash();
             } else {
                 Toast.makeText(this, "Permiso de cámara denegado, no se puede usar el flash", Toast.LENGTH_SHORT).show();
@@ -170,7 +179,12 @@ public class activity_alarma_personal extends AppCompatActivity {
         }
     }
 
-    // Cuando la actividad se pausa o destruye, apagamos todo
+
+    // ===============================================
+    // CICLO DE VIDA DE LA ACTIVIDAD (IMPORTANTE)
+    // ===============================================
+
+    // Cuando la actividad se pausa o destruye, nos aseguramos de apagar todo.
     @Override
     protected void onPause() {
         super.onPause();

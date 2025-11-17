@@ -9,6 +9,8 @@
         android:required="false" />
 
     <uses-permission android:name="android.permission.CALL_PHONE" />
+    <uses-permission android:name="android.permission.ACCESS_NOTIFICATION_POLICY" />
+
     <!-- Permiso para usar el flash (a través de la cámara) -->
     <uses-permission android:name="android.permission.CAMERA" />
     <!-- Permisos de ubicación -->
@@ -51,6 +53,10 @@
 
         <activity
             android:name=".activity_alarma_personal"
+            android:exported="false" />
+
+        <activity
+            android:name=".activity_numeros_oficiales"
             android:exported="false" />
 
         <activity
