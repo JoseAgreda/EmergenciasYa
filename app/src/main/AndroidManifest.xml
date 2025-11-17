@@ -9,6 +9,7 @@
         android:required="false" />
 
     <uses-permission android:name="android.permission.CALL_PHONE" />
+    <uses-permission android:name="android.permission.READ_CONTACTS" />
     <uses-permission android:name="android.permission.ACCESS_NOTIFICATION_POLICY" /> <!-- Permiso para usar el flash (a través de la cámara) -->
     <uses-permission android:name="android.permission.CAMERA" /> <!-- Permisos de ubicación -->
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
@@ -24,6 +25,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.EmergenciasYa">
         <activity
+            android:name=".activity_contactos_confianza2"
+            android:exported="false" />
+        <activity
             android:name=".activity_guia_primeros_auxilios2"
             android:exported="false" />
         <activity
@@ -33,12 +37,8 @@
             android:name=".RegistroIncidentesActivity"
             android:exported="false" />
         <activity
-            android:name=".ContactosConfianzaActivity"
-            android:exported="false" />
-        <activity
             android:name=".NumerosOficialesActivity"
             android:exported="false" />
-
         <activity
             android:name=".activity_alarma_personal"
             android:exported="false" />

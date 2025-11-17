@@ -58,7 +58,7 @@ public class MainActivity extends AppCompatActivity {
         });
 
         cardContactos.setOnClickListener(v -> {
-            Intent intent = new Intent(MainActivity.this, ContactosConfianzaActivity.class);
+            Intent intent = new Intent(MainActivity.this, activity_contactos_confianza2.class);
             startActivity(intent);
         });
 
