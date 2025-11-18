@@ -17,4 +17,9 @@ public interface IncidentDao {
 
     @Query("DELETE FROM incidentes")
     void deleteAll();
+
+    @Query("DELETE FROM incidentes WHERE id = :id")
+    void deleteById(long id);
+
+
 }

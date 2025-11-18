@@ -6,6 +6,13 @@ android {
     namespace 'sv.edu.catolica.emergenciasya'
     compileSdk 36
 
+
+    def localProperties = new Properties()
+    def localPropertiesFile = rootProject.file('local.properties')
+    if (localPropertiesFile.exists()) {
+        localProperties.load(new FileInputStream(localPropertiesFile))
+    }
+
     defaultConfig {
         applicationId "sv.edu.catolica.emergenciasya"
         minSdk 30
@@ -14,6 +21,7 @@ android {
         versionName "1.0"
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        manifestPlaceholders.put("MAPS_API_KEY", localProperties.getProperty("MAPS_API_KEY"))
     }
 
     buildTypes {
@@ -35,7 +43,7 @@ dependencies {
     implementation libs.activity
     implementation 'com.google.android.gms:play-services-location:21.0.1'
     implementation("com.google.code.gson:gson:2.10.1")
-
+    implementation("com.google.android.gms:play-services-maps:18.2.0")
     implementation "androidx.room:room-runtime:2.6.1"
     implementation libs.play.services.location
     annotationProcessor "androidx.room:room-compiler:2.6.1"

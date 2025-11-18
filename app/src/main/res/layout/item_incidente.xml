@@ -26,7 +26,22 @@
             app:tint="#D32F2F"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            android:contentDescription="Icono de incidente"/>
+            android:contentDescription="@string/icono_de_incidente"/>
+
+        <ImageView
+            android:id="@+id/btn_delete_incidente"
+            android:layout_width="28dp"
+            android:layout_height="28dp"
+            android:clickable="true"
+            android:contentDescription="@string/eliminar_incidente"
+            android:focusable="true"
+            android:padding="4dp"
+            android:src="@drawable/ic_delete"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:tint="#D32F2F"
+            tools:ignore="TouchTargetSizeCheck" />
+
 
         <!-- Título del Incidente -->
         <TextView
@@ -41,6 +56,21 @@
             app:layout_constraintStart_toEndOf="@id/icon_incidente"
             app:layout_constraintTop_toTopOf="@id/icon_incidente"
             tools:text="RCP Realizado" />
+
+        <!-- Nueva descripción corta -->
+        <TextView
+            android:id="@+id/tv_descripcion_corta"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="4dp"
+            android:textColor="#616161"
+            android:textSize="14sp"
+            app:layout_constraintStart_toEndOf="@id/icon_incidente"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tv_tipo_emergencia"
+            tools:text="Paciente inconsciente encontrado en la vía pública..." />
+
 
         <!-- Línea separadora -->
         <View
@@ -63,7 +93,7 @@
             app:tint="#757575"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/divider"
-            android:contentDescription="Icono de fecha"/>
+            android:contentDescription="@string/icono_de_fecha"/>
 
         <TextView
             android:id="@+id/tv_fecha"
@@ -83,11 +113,11 @@
             android:layout_width="20dp"
             android:layout_height="20dp"
             android:layout_marginTop="8dp"
-            android:src="@drawable/ic_call"
+            android:src="@drawable/my_location"
             app:tint="#757575"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/icon_fecha"
-            android:contentDescription="Icono de contacto"/>
+            android:contentDescription="@string/icono_de_contacto"/>
 
         <TextView
             android:id="@+id/tv_contacto"

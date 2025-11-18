@@ -43,4 +43,15 @@
     <string name="register_confirm_password_hint">Confirmar contraseña</string>
     <string name="register_button_text">Registrar</string>
     <string name="register_go_to_login">Ya tengo una cuenta</string>
+    <string name="ubi">Compartir Ubicación</string>
+    <string name="sos">SOS</string>
+    <string name="incidente">Registro de incidentes</string>
+    <string name="ubica">Compartir Ubicación</string>
+    <string name="icono_de_contacto">Icono de contacto</string>
+    <string name="icono_de_fecha">Icono de fecha</string>
+    <string name="icono_de_incidente">Icono de incidente</string>
+    <string name="eliminar_incidente">Eliminar incidente</string>
+    <string name="compartir_en_otras_apps">Compartir en otras apps</string>
+    <string name="enviar_ubicaci_n_por_sms">Enviar Ubicación por SMS</string>
+    <string name="compartir_mi_ubicaci_n">Compartir Mi Ubicación</string>
 </resources>
