@@ -8,6 +8,21 @@
     android:background="#F5F5F5"
     tools:context=".MainActivity">
 
+    <!-- ========= INICIO DEL NUEVO BOTÓN DE CONFIGURACIÓN ========= -->
+    <ImageButton
+        android:id="@+id/btn_settings"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:src="@drawable/ic_conf"
+        android:background="?attr/selectableItemBackgroundBorderless"
+        android:contentDescription="Configuración"
+        app:tint="#616161"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+    <!-- ========= FIN DEL NUEVO BOTÓN DE CONFIGURACIÓN ========= -->
+
     <!-- Sección SOS central y llamativa -->
     <com.google.android.material.card.MaterialCardView
         android:id="@+id/sos_card"

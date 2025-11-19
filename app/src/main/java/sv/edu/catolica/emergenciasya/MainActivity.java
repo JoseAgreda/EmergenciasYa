@@ -1,9 +1,10 @@
 package sv.edu.catolica.emergenciasya;
 
-import android.Manifest; // Importa la clase Manifest
+import android.Manifest;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.os.Bundle;
+import android.widget.ImageButton; // Importar ImageButton
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -18,10 +19,10 @@ import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
 
-    // 1. Añade la variable para la nueva tarjeta
+    // 1. Añadir la variable para el botón de configuración
+    private ImageButton btnSettings;
     private MaterialCardView sosCard, cardNumerosOficiales, cardPrimerosAuxilios, cardContactos, cardLocalizacion, cardRegistro;
 
-    // Código único para la solicitud de MÚLTIPLES permisos.
     private static final int CODIGO_PERMISOS_MULTIPLES = 101;
 
     @Override
@@ -29,23 +30,33 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        // === Referencias de las cards ===
+        // === Referencias de las vistas ===
         sosCard = findViewById(R.id.sos_card);
         cardNumerosOficiales = findViewById(R.id.card_numeros_oficiales);
         cardPrimerosAuxilios = findViewById(R.id.card_primeros_auxilios);
         cardContactos = findViewById(R.id.card_contactos);
-        // 2. Obtiene la referencia de la nueva tarjeta
         cardLocalizacion = findViewById(R.id.card_localizacion);
         cardRegistro = findViewById(R.id.card_registro);
 
-        // === Acciones para cada card (Listeners) ===
-        setupCardClickListeners();
+        // 2. Obtener la referencia del nuevo botón de configuración
+        btnSettings = findViewById(R.id.btn_settings);
+
+        // === Acciones para cada vista (Listeners) ===
+        setupClickListeners();
 
         // Llama al método para verificar y solicitar los permisos al iniciar.
         verificarYPedirPermisos();
     }
 
-    private void setupCardClickListeners() {
+    private void setupClickListeners() {
+        // --- Listener para el nuevo botón de configuración ---
+        // 3. Añadir la acción para el botón de configuración
+        btnSettings.setOnClickListener(v -> {
+            Intent intent = new Intent(MainActivity.this, ConfiguracionActivity.class);
+            startActivity(intent);
+        });
+
+        // --- Listeners para las tarjetas ---
         sosCard.setOnClickListener(v -> {
             Intent intent = new Intent(MainActivity.this, activity_alarma_personal.class);
             startActivity(intent);
@@ -66,40 +77,33 @@ public class MainActivity extends AppCompatActivity {
             startActivity(intent);
         });
 
-        // 3. Añade la acción para la nueva tarjeta de localización
         cardLocalizacion.setOnClickListener(v -> {
             Intent intent = new Intent(MainActivity.this, activity_localizacion.class);
             startActivity(intent);
         });
+
         cardRegistro.setOnClickListener(v -> {
+            // Asegúrate de tener una actividad llamada activity_registro_incidentes.class
             Intent intent = new Intent(MainActivity.this, RegistroIncidentesActivity.class);
             startActivity(intent);
         });
     }
 
-    /**
-     * Método modificado para verificar y solicitar múltiples permisos.
-     */
     private void verificarYPedirPermisos() {
-        // Lista de permisos que necesita la aplicación.
-        // 4. AÑADE EL PERMISO DE UBICACIÓN
         String[] permisosRequeridos = new String[]{
                 Manifest.permission.CALL_PHONE,
                 Manifest.permission.CAMERA,
                 Manifest.permission.ACCESS_FINE_LOCATION
         };
 
-        // Lista para guardar los permisos que aún no han sido concedidos.
         List<String> permisosParaSolicitar = new ArrayList<>();
 
-        // Recorremos la lista de permisos requeridos para ver cuáles faltan.
         for (String permiso : permisosRequeridos) {
             if (ContextCompat.checkSelfPermission(this, permiso) != PackageManager.PERMISSION_GRANTED) {
                 permisosParaSolicitar.add(permiso);
             }
         }
 
-        // Si la lista de permisos a solicitar no está vacía, los pedimos.
         if (!permisosParaSolicitar.isEmpty()) {
             ActivityCompat.requestPermissions(
                     this,
@@ -109,9 +113,6 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
-    /**
-     * Este método se ejecuta automáticamente después de que el usuario responde al diálogo.
-     */
     @Override
     public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
         super.onRequestPermissionsResult(requestCode, permissions, grantResults);
@@ -119,11 +120,10 @@ public class MainActivity extends AppCompatActivity {
         if (requestCode == CODIGO_PERMISOS_MULTIPLES) {
             if (grantResults.length > 0) {
                 boolean todosLosPermisosConcedidos = true;
-                for (int i = 0; i < grantResults.length; i++) {
-                    if (grantResults[i] != PackageManager.PERMISSION_GRANTED) {
+                for (int resultado : grantResults) {
+                    if (resultado != PackageManager.PERMISSION_GRANTED) {
                         todosLosPermisosConcedidos = false;
-                        // Opcional: Muestra qué permiso fue denegado
-                        // Log.d("Permissions", "Permiso denegado: " + permissions[i]);
+                        break;
                     }
                 }
 

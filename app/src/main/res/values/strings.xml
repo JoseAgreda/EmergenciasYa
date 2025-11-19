@@ -54,4 +54,10 @@
     <string name="compartir_en_otras_apps">Compartir en otras apps</string>
     <string name="enviar_ubicaci_n_por_sms">Enviar Ubicación por SMS</string>
     <string name="compartir_mi_ubicaci_n">Compartir Mi Ubicación</string>
+    <string name="t_tulo_del_incidente">Título del incidente</string>
+    <string name="ubicaci_n_opcional">Ubicación (opcional)</string>
+    <string name="descripci_n_del_incidente">Descripción del incidente</string>
+    <string name="guardar_incidente">Guardar incidente</string>
+    <string name="incidentes_recientes">Incidentes recientes</string>
+    <string name="no_hay_incidentes_registrados">No hay incidentes registrados</string>
 </resources>

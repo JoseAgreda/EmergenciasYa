@@ -6,6 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#F5F5F5"
+    android:id="@+id/main"
     tools:context=".ConfiguracionActivity">
 
     <!-- Barra de la aplicación con título y fondo rojo -->
@@ -42,59 +43,40 @@
                 style="@style/SettingsCategoryTitle"
                 android:text="General" />
 
-            <!-- Opción Idioma -->
-            <LinearLayout style="@style/SettingsItem">
+            <!-- Opción Idioma (Clickeable) -->
+            <LinearLayout
+                android:id="@+id/option_language"
+                style="@style/SettingsItem"
+                android:clickable="true"
+                android:focusable="true"
+                android:background="?attr/selectableItemBackground">
                 <ImageView style="@style/SettingsItemIcon" android:src="@drawable/ic_languaje" android:contentDescription="Icono de idioma" />
                 <LinearLayout style="@style/SettingsItemTextContainer">
                     <TextView style="@style/SettingsItemTitle" android:text="Idioma" />
-                    <TextView style="@style/SettingsItemSubtitle" android:text="Español" />
+                    <TextView
+                        android:id="@+id/tv_current_language"
+                        style="@style/SettingsItemSubtitle"
+                        android:text="Español" />
                 </LinearLayout>
+                <ImageView style="@style/SettingsItemArrow" />
             </LinearLayout>
 
-            <!-- Opción Tema Oscuro -->
-            <LinearLayout style="@style/SettingsItem">
+            <!-- Opción Cerrar Sesión -->
+            <LinearLayout
+                android:id="@+id/option_logout"
+                style="@style/SettingsItem"
+                android:clickable="true"
+                android:focusable="true"
+                android:background="?attr/selectableItemBackground">
                 <ImageView style="@style/SettingsItemIcon"
-                    android:src="@drawable/ic_dark_mode" android:contentDescription="Icono de tema oscuro" />
+                    app:tint="#D32F2F"
+                    android:contentDescription="Icono de cerrar sesión" />
                 <LinearLayout style="@style/SettingsItemTextContainer">
-                    <TextView style="@style/SettingsItemTitle" android:text="Tema oscuro" />
+                    <TextView
+                        style="@style/SettingsItemTitle"
+                        android:text="Cerrar sesión"
+                        android:textColor="#D32F2F"/>
                 </LinearLayout>
-
-                <com.google.android.material.switchmaterial.SwitchMaterial
-                    android:id="@+id/switch_dark_mode"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    tools:ignore="SpeakableTextPresentCheck" />
-            </LinearLayout>
-
-            <View style="@style/SettingsDivider" />
-
-            <!-- ========= SECCIÓN ACCESIBILIDAD ========= -->
-            <TextView
-                style="@style/SettingsCategoryTitle"
-                android:text="Accesibilidad" />
-
-            <!-- Opción Tamaño de letra -->
-            <LinearLayout style="@style/SettingsItem">
-                <ImageView style="@style/SettingsItemIcon" android:src="@drawable/ic_text_size"
-                    android:contentDescription="Icono de tamaño de texto"/>
-                <LinearLayout style="@style/SettingsItemTextContainer">
-                    <TextView style="@style/SettingsItemTitle" android:text="Tamaño de letra" />
-                    <TextView style="@style/SettingsItemSubtitle" android:text="Normal" />
-                </LinearLayout>
-            </LinearLayout>
-
-            <!-- Opción Contraste Alto -->
-            <LinearLayout style="@style/SettingsItem">
-                <ImageView style="@style/SettingsItemIcon" android:src="@drawable/ic_contrast" android:contentDescription="Icono de contraste" />
-                <LinearLayout style="@style/SettingsItemTextContainer">
-                    <TextView style="@style/SettingsItemTitle" android:text="Contraste alto" />
-                </LinearLayout>
-
-                <com.google.android.material.switchmaterial.SwitchMaterial
-                    android:id="@+id/switch_high_contrast"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    tools:ignore="SpeakableTextPresentCheck" />
             </LinearLayout>
 
             <View style="@style/SettingsDivider" />
@@ -114,7 +96,12 @@
             </LinearLayout>
 
             <!-- Opción Términos y Política de Privacidad -->
-            <LinearLayout style="@style/SettingsItem">
+            <LinearLayout
+                android:id="@+id/option_privacy"
+                style="@style/SettingsItem"
+                android:clickable="true"
+                android:focusable="true"
+                android:background="?attr/selectableItemBackground">
                 <ImageView style="@style/SettingsItemIcon" android:src="@drawable/ic_policy" android:contentDescription="Icono de política de privacidad"/>
                 <LinearLayout style="@style/SettingsItemTextContainer">
                     <TextView style="@style/SettingsItemTitle" android:text="Términos y política de privacidad" />

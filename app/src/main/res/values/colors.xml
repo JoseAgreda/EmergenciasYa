@@ -7,4 +7,17 @@
     <color name="light_gray">#F5F5F5</color>
     <color name="pastel_green">#A5D6A7</color>
     <color name="dark_green_text">#2E7D32</color>
+    <!-- === Colores para Login/Registro === -->
+    <!-- Un rojo vibrante pero no tan oscuro como el del botón -->
+    <color name="color_accent_red">#E53935</color>
+
+    <!-- Color de texto principal (casi negro) para máxima legibilidad -->
+    <color name="text_primary">#212121</color>
+
+    <!-- Color para los hints y textos secundarios -->
+    <color name="text_secondary">#757575</color>
+
+    <!-- Fondo de la pantalla -->
+    <color name="screen_background">#FFFFFF</color>
+
 </resources>

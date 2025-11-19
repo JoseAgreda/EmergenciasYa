@@ -9,7 +9,7 @@
     android:background="#F5F5F5"
     tools:context=".RegistroIncidentesActivity">
 
-    <!-- AppBar con título -->
+    <!-- AppBar con título (Sin cambios) -->
     <com.google.android.material.appbar.AppBarLayout
         android:id="@+id/app_bar_layout"
         android:layout_width="match_parent"
@@ -40,13 +40,16 @@
             android:orientation="vertical"
             android:padding="16dp">
 
+            <!-- ========= INICIO DE LOS CAMBIOS ========= -->
+
             <!-- Campo: Título del incidente -->
             <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/input_titulo"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="Título del incidente"
-                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+                android:hint="@string/t_tulo_del_incidente"
+                app:boxStrokeColor="#C62828"
+                app:hintTextColor="#C62828">
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/etTitulo"
@@ -61,8 +64,9 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="12dp"
-                android:hint="Ubicación (opcional)"
-                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+                android:hint="@string/ubicaci_n_opcional"
+                app:boxStrokeColor="#C62828"
+                app:hintTextColor="#C62828">
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/etUbicacion"
@@ -74,11 +78,13 @@
             <!-- Campo: Descripción -->
             <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/input_descripcion"
+
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="12dp"
-                android:hint="Descripción del incidente"
-                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+                android:hint="@string/descripci_n_del_incidente"
+                app:boxStrokeColor="#C62828"
+                app:hintTextColor="#C62828">
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/etDescripcion"
@@ -88,29 +94,32 @@
                     android:minLines="3" />
             </com.google.android.material.textfield.TextInputLayout>
 
-            <!-- Botón Guardar -->
+            <!-- ========= FIN DE LOS CAMBIOS ========= -->
+
+
+            <!-- Botón Guardar (Sin cambios) -->
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/btnGuardarIncidente"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
-                android:text="Guardar incidente"
+                android:text="@string/guardar_incidente"
                 android:textAllCaps="false"
                 android:textColor="@android:color/white"
                 app:backgroundTint="#E53935" />
 
-            <!-- Título de la lista -->
+            <!-- Título de la lista (Sin cambios) -->
             <TextView
                 android:id="@+id/tvIncidentesRecientes"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="24dp"
-                android:text="Incidentes recientes"
+                android:text="@string/incidentes_recientes"
                 android:textSize="16sp"
                 android:textStyle="bold"
-                android:textColor="#212121" />
+                android:textColor="@color/black" />
 
-            <!-- Lista de incidentes -->
+            <!-- Lista de incidentes (Sin cambios) -->
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/recyclerIncidentes"
                 android:layout_width="match_parent"
@@ -122,11 +131,12 @@
         </LinearLayout>
     </ScrollView>
 
+    <!-- Texto de estado vacío (Sin cambios) -->
     <TextView
         android:id="@+id/tv_empty_state"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="No hay incidentes registrados"
+        android:text="@string/no_hay_incidentes_registrados"
         android:textSize="16sp"
         android:textColor="#9E9E9E"
         android:visibility="gone"
