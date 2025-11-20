@@ -6,7 +6,7 @@
     <string name="alarma">Alarma</string>
     <string name="localizaci_n">Localización</string>
     <string name="contactos_de_confianza">Contactos de Confianza</string>
-    <string name="numeros_oficiales">Números Oficiales</string>
+    <string name="numeros_oficiales">Números De Emergencia</string>
     <string name="configuracion">Configuración</string>
     <string name="ayuda">Ayuda</string>
     <string name="acerca_de">Acerca de</string>
@@ -60,4 +60,27 @@
     <string name="guardar_incidente">Guardar incidente</string>
     <string name="incidentes_recientes">Incidentes recientes</string>
     <string name="no_hay_incidentes_registrados">No hay incidentes registrados</string>
+    <string name="icono_de_idioma">Icono de idioma</string>
+    <string name="idioma">Idioma</string>
+    <string name="espa_ol">Español</string>
+    <string name="icono_de_cerrar_sesi_n">Icono de cerrar sesión</string>
+    <string name="cerrar_sesi_n">Cerrar sesión</string>
+    <string name="icono_de_informaci_n">Icono de información</string>
+    <string name="versi_n_de_la_app">Versión de la app</string>
+    <string name="_1_0_0">1.0.0</string>
+    <string name="icono_de_pol_tica_de_privacidad">Icono de política de privacidad</string>
+    <string name="t_rminos_y_pol_tica_de_privacidad">Términos y política de privacidad</string>
+    <string name="acerca_de1">Acerca de</string>
+    <string name="general">General</string>
+    <string name="no_hay_contactos">No hay contactos</string>
+    <string name="no_hay_contactos_de_confianza">No hay contactos de confianza</string>
+    <string name="usa_el_bot_n_para_a_adir_uno">Usa el botón \'+\' para añadir uno.</string>
+    <string name="a_adir_contacto">Añadir Contacto</string>
+    <string name="buscar_una_situaci_n">Buscar una situación...</string>
+    <string name="nombre_del_contacto">Nombre del Contacto</string>
+    <string name="n_mero_de_tel_fono">Número de Teléfono</string>
+    <string name="nombre_de_la_instituci_n">Nombre de la Institución</string>
+    <string name="n_mero">Número</string>
+    <string name="t_tulo_del_tema">Título del Tema</string>
+    <string name="descripci_n_del_tema">Descripción del tema...</string>
 </resources>

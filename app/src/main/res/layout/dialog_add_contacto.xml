@@ -12,7 +12,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-        android:hint="Nombre del Contacto">
+        android:hint="@string/nombre_del_contacto">
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/et_contact_name"
@@ -28,7 +28,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-        android:hint="Número de Teléfono">
+        android:hint="@string/n_mero_de_tel_fono">
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/et_contact_number"

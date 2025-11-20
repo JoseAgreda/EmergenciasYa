@@ -41,7 +41,7 @@
             <!-- ========= SECCIÓN GENERAL ========= -->
             <TextView
                 style="@style/SettingsCategoryTitle"
-                android:text="General" />
+                android:text="@string/general" />
 
             <!-- Opción Idioma (Clickeable) -->
             <LinearLayout
@@ -50,13 +50,14 @@
                 android:clickable="true"
                 android:focusable="true"
                 android:background="?attr/selectableItemBackground">
-                <ImageView style="@style/SettingsItemIcon" android:src="@drawable/ic_languaje" android:contentDescription="Icono de idioma" />
+                <ImageView style="@style/SettingsItemIcon" android:src="@drawable/ic_languaje"
+                    android:contentDescription="@string/icono_de_idioma" />
                 <LinearLayout style="@style/SettingsItemTextContainer">
-                    <TextView style="@style/SettingsItemTitle" android:text="Idioma" />
+                    <TextView style="@style/SettingsItemTitle" android:text="@string/idioma" />
                     <TextView
                         android:id="@+id/tv_current_language"
                         style="@style/SettingsItemSubtitle"
-                        android:text="Español" />
+                        android:text="@string/espa_ol" />
                 </LinearLayout>
                 <ImageView style="@style/SettingsItemArrow" />
             </LinearLayout>
@@ -70,11 +71,11 @@
                 android:background="?attr/selectableItemBackground">
                 <ImageView style="@style/SettingsItemIcon"
                     app:tint="#D32F2F"
-                    android:contentDescription="Icono de cerrar sesión" />
+                    android:contentDescription="@string/icono_de_cerrar_sesi_n" />
                 <LinearLayout style="@style/SettingsItemTextContainer">
                     <TextView
                         style="@style/SettingsItemTitle"
-                        android:text="Cerrar sesión"
+                        android:text="@string/cerrar_sesi_n"
                         android:textColor="#D32F2F"/>
                 </LinearLayout>
             </LinearLayout>
@@ -84,14 +85,15 @@
             <!-- ========= SECCIÓN ACERCA DE ========= -->
             <TextView
                 style="@style/SettingsCategoryTitle"
-                android:text="Acerca de" />
+                android:text="@string/acerca_de1" />
 
             <!-- Opción Versión de la app -->
             <LinearLayout style="@style/SettingsItem">
-                <ImageView style="@style/SettingsItemIcon" android:src="@drawable/ic_info" android:contentDescription="Icono de información" />
+                <ImageView style="@style/SettingsItemIcon" android:src="@drawable/ic_info"
+                    android:contentDescription="@string/icono_de_informaci_n" />
                 <LinearLayout style="@style/SettingsItemTextContainer">
-                    <TextView style="@style/SettingsItemTitle" android:text="Versión de la app" />
-                    <TextView style="@style/SettingsItemSubtitle" android:text="1.0.0" />
+                    <TextView style="@style/SettingsItemTitle" android:text="@string/versi_n_de_la_app" />
+                    <TextView style="@style/SettingsItemSubtitle" android:text="@string/_1_0_0" />
                 </LinearLayout>
             </LinearLayout>
 
@@ -102,9 +104,10 @@
                 android:clickable="true"
                 android:focusable="true"
                 android:background="?attr/selectableItemBackground">
-                <ImageView style="@style/SettingsItemIcon" android:src="@drawable/ic_policy" android:contentDescription="Icono de política de privacidad"/>
+                <ImageView style="@style/SettingsItemIcon" android:src="@drawable/ic_policy"
+                    android:contentDescription="@string/icono_de_pol_tica_de_privacidad"/>
                 <LinearLayout style="@style/SettingsItemTextContainer">
-                    <TextView style="@style/SettingsItemTitle" android:text="Términos y política de privacidad" />
+                    <TextView style="@style/SettingsItemTitle" android:text="@string/t_rminos_y_pol_tica_de_privacidad" />
                 </LinearLayout>
                 <ImageView style="@style/SettingsItemArrow" />
             </LinearLayout>

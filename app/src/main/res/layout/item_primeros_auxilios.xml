@@ -17,7 +17,7 @@
             android:id="@+id/tituloTextView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Título del Tema"
+            android:text="@string/t_tulo_del_tema"
             android:textSize="18sp"
             android:textStyle="bold" />
 
@@ -25,7 +25,7 @@
             android:id="@+id/descripcionTextView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Descripción del tema..."
+            android:text="@string/descripci_n_del_tema"
             android:textSize="14sp" />
 
     </LinearLayout>
